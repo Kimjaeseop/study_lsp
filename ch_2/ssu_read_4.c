@@ -53,7 +53,7 @@ int main(int argc, char *argv[])
 		printf("Enter line number : ");
 		scanf("%d", &length);
 
-		if (--length < 0)
+		if (--length < 0) // --length로 인덱스 맞춤
 			break;
 
 		lseek(fd, table[length].offset, 0);

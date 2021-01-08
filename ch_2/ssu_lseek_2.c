@@ -2,9 +2,9 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <fcntl.h>
-//#include <sys/stat.h>
+//#include <sys/stat.h> // fcntl안에도 위치
 
-#define CREAT_MODE (S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH)
+#define CREAT_MODE (S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH) // stat.h에 위치
 
 char buf1[] = "1234567890";
 char buf2[] = "ABCDEFGHIJ";
