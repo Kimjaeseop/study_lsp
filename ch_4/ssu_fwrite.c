@@ -34,7 +34,6 @@ int main(void)
 		exit(1);
 	}
 
-
 	if (fread(&test2, sizeof(struct ssu_id), 1, fp) != 1) {
 		fprintf(stderr, "fread error\n");
 		exit(1);

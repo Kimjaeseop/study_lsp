@@ -15,7 +15,7 @@ int main(void)
 	}
 
 	while (!feof(fp)) {
-		while ((character = fgetc(fp)) != EOF && isdigit(character)) {
+		while ((character = fgetc(fp)) != EOF && isdigit(character)) { // EOF or not digit
 			number = 10 * number + character - 48;
 		}
 

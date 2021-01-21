@@ -13,7 +13,7 @@ int main(void)
 	}
 
 	fseek(fp, 0, SEEK_END);
-	fsize = ftell(fp);
+	fsize = ftell(fp); // return offset // SEEKEND -> ftell is file size return
 	printf("The size of <%s> is %ld bytes\n", fname, fsize);
 
 	exit(0);
