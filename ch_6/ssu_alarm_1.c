@@ -12,7 +12,10 @@ int main(void)
 	signal(SIGALRM, ssu_signal_handler);
 	alarm(1);
 
-	while(1);
+	while(1) {
+		printf("while\n");
+		sleep(1);
+	}
 
 	exit(0);
 }

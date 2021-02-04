@@ -33,7 +33,7 @@ int main(void)
 			printf("after kill()\n");
 			ssu_check_pending(SIGUSR1, "SIGUSR1");
 			sigemptyset(&sig_set);
-			sigprocmask(SIG_SETMASK, &sig_set, NULL);
+			sigprocmask(SIG_SETMASK, &sig_set, NULL); // 여기서 블락해제되면서 핸들러 실행됨
 			printf("SIGUSR1 signals are no longer blocked\n");
 			ssu_check_pending(SIGUSR1, "SIGUSR1");
 		}

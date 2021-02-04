@@ -15,12 +15,16 @@ int main(void)
 	sigemptyset(&sig_act.sa_mask);
 	sig_act.sa_flags = 0;
 	sig_act.sa_handler = ssu_signal_handler;
+
 	sigaction(SIGUSR1, &sig_act, NULL);
 	printf("before first kill()\n");
+
 	kill(getpid(), SIGUSR1);
+
 	sigemptyset(&sig_set);
 	sigaddset(&sig_set, SIGUSR1);
-	sigprocmask(SIG_SETMASK, &sig_set, NULL);
+	sigprocmask(SIG_SETMASK, &sig_set, NULL); // SIGUSR1 블락
+
 	printf("before second kill()\n");
 	kill(getpid(), SIGUSR1);
 	printf("after second kill()\n");

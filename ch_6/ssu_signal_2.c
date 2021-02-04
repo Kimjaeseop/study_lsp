@@ -17,13 +17,12 @@ int main(void)
 		exit(EXIT_FAILURE);
 	}
 
-	
-	if (signal(SIGPROF, ssu_signal_handler) == SIG_ERR) {
+	if (signal(SIGPROF, SIG_DFL) == SIG_ERR) {
 		fprintf(stderr, "cannot handle SIGPROF\n");
 		exit(EXIT_FAILURE);
 	}
 
-	if (signal(SIGHUP, ssu_signal_handler) == SIG_ERR) {
+	if (signal(SIGHUP, SIG_IGN) == SIG_ERR) {
 		fprintf(stderr, "cannot handle SIGHUP\n");
 		exit(EXIT_FAILURE);
 	}
