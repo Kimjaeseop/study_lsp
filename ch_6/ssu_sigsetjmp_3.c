@@ -29,7 +29,7 @@ int main(void)
 	printf("Starting\n");
 	sigsetjmp(jmp_buf2, 2);
 	act_sig2.sa_handler = ssu_signal_handler2;
-	sigaction(SIGUSR1, &act_sig2, NULL); // SIGUSR is 30 in mac
+	sigaction(SIGUSR1, &act_sig2, NULL); // SIGUSR1 -> kill -30 pid (on mac)
 
 	for (i = 0; i < 20; i++) {
 		printf("i = %d\n", i);

@@ -13,7 +13,7 @@ int main(void)
 	signal(SIGINT, ssu_signal_handler);
 
 	while (1) {
-		if (setjmp(jump_buffer) == 0) {
+		if (setjmp(jump_buffer) == 0) { // return : 직접 호출 0, setlongjmp에 의한 호출 0이 아닌 값
 			printf("Hit Ctrl-c at anytime ... \n");
 			pause();
 		}
