@@ -15,6 +15,7 @@ int main(void)
 	}
 
 	printf("%u\n", (unsigned int)tid);
+	//sleep(1);
 
 	if (pthread_create(&tid, NULL, ssu_thread, NULL) != 0) {
 		fprintf(stderr, "pthread_create error\n");

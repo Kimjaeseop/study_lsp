@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <pthread.h>
+
 #include <errno.h>
 #include <string.h>
 
@@ -36,7 +37,7 @@ int main(void)
 	}
 
 	if (pthread_join(tid2, (void *)&status) != 0) {
-		fprintf(stderr, "%s\n", strerror(errno));
+		fprintf(stderr, "errno : %d\n", errno);
 		fprintf(stderr, "pthread_join2 error\n");
 		exit(1);
 	}
@@ -51,6 +52,8 @@ int main(void)
 void *ssu_loop1(void *arg) {
 	int i;
 
+	printf("tid1 : %u\n", (unsigned int)pthread_self());
+
 	for (i = 0; i < 10; i++) {
 		pthread_mutex_lock(&mutex);
 		printf("loop1 : %d\n", shared_value);
@@ -64,12 +67,13 @@ void *ssu_loop1(void *arg) {
 		sleep(1);
 	}
 
-	printf("ssu_loop1 end\n");
 	return NULL;
 }
 
 void *ssu_loop2(void *arg) {
 	int i;
+
+	printf("tid2 : %u\n", (unsigned int)pthread_self());
 
 	for (i = 0; i < 10; i++) {
 		pthread_mutex_lock(&mutex);
@@ -79,6 +83,5 @@ void *ssu_loop2(void *arg) {
 		sleep(2);
 	}
 
-	printf("ssu_loop2 end\n");
 	return NULL;
 }
